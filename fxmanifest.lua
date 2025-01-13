@@ -18,5 +18,5 @@ server_scripts {
 
 client_scripts {
     '**/client.lua',
-    'cl_events.lua'
+    '**/cl_events.lua'
 }
