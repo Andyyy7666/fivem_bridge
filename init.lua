@@ -1,5 +1,5 @@
 local function getFrameworkBridge()
-    for resource, framework in pairs(Config.bridgeFrameworks) do
+    for resource, framework in pairs(Config.frameworks) do
         if GetResourceState(resource):find("start") then
             return framework
         end
@@ -8,7 +8,7 @@ local function getFrameworkBridge()
 end
 
 local function getInventoryBridge()
-    for resource, inventory in pairs(Config.bridgeInventories) do
+    for resource, inventory in pairs(Config.inventories) do
         if GetResourceState(resource):find("start") then
             return inventory
         end
@@ -17,7 +17,7 @@ local function getInventoryBridge()
 end
 
 local function getNotificationBridge()
-    for resource, notification in pairs(Config.bridgeNotifications) do
+    for resource, notification in pairs(Config.notifications) do
         if GetResourceState(resource):find("start") then
             return notification
         end

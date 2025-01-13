@@ -6,18 +6,18 @@ Config = {
     ---Use the right side for the bridge method.
     ---bridgeFramework = "esx", -- ox, esx, qbox, qb-core, <custom> (if you've added this yourself).
     ---bridgeInventory = "ox_inventory", -- ox_inventory, <custom> (if you've added this yourself).
-    bridgeFrameworks = {
+    frameworks = {
         ["ND_Core"] = "nd",
         ["ox_core"] = Fw_ESXBridge,
         ["es_extended"] = "esx",
         ["qb-core"] = "qb"
     },
 
-    bridgeInventories = {
+    inventories = {
         ["ox_inventory"] = Inv_OxBridge
     },
 
-    bridgeNotifications = {
+    notifications = {
         ["ox_lib"] = No_OxBridge,
         ["es_extended"] = No_EsxBridge
     },
