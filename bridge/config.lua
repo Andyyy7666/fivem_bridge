@@ -22,4 +22,9 @@ Config = {
         ["es_extended"] = "esx",
         ["qb-core"] = "qb",
     },
+
+    targets = {
+        "ox_target" = "ox_target",
+        "qb-target" = "qb_target",
+    }
 }
