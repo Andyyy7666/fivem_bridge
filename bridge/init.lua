@@ -14,6 +14,7 @@ Bridge = {
     F = getBridge("frameworks"),
     I = getBridge("inventories"),
     N = getBridge("notifications")
+    T = getBridge("targets")
 }
 
 -- todo: somehow load the bridge path like oxlib lib.load function.
