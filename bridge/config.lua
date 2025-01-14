@@ -8,17 +8,18 @@ Config = {
     ---bridgeInventory = "ox_inventory", -- ox_inventory, <custom> (if you've added this yourself).
     frameworks = {
         ["ND_Core"] = "nd",
-        ["ox_core"] = Fw_ESXBridge,
+        ["ox_core"] = "ox",
         ["es_extended"] = "esx",
         ["qb-core"] = "qb"
     },
 
     inventories = {
-        ["ox_inventory"] = Inv_OxBridge
+        ["ox_inventory"] = "ox_inventory"
     },
 
     notifications = {
-        ["ox_lib"] = No_OxBridge,
-        ["es_extended"] = No_EsxBridge
+        ["ox_lib"] = "ox_lib",
+        ["es_extended"] = "esx",
+        ["qb-core"] = "qb",
     },
 }
