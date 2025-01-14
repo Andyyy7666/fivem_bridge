@@ -19,6 +19,5 @@ end)
 
 ---@return string
 function Fw_ESXBridge:GetPlayerName()
-    local playerData = self.ESX.PlayerData
-    return playerData.firstName .. ' ' .. playerData.lastName
+    return self.ESX.PlayerData.name
 end
