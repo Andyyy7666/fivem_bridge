@@ -76,7 +76,7 @@ end
 
 ---@return table
 function framework:GetCoords()
-    return ESX.PlayerData.coords
+    return cache.coords or GetEntityCoords(cache.ped)
 end
 
 ---@return string
