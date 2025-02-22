@@ -67,5 +67,37 @@ function framework:GetSex()
     return ESX.PlayerData.sex
 end
 
+---@return boolean
+function framework:IsPlayerLoaded()
+    return ESX.IsPlayerLoaded()
+end
+
+function framework:Progressbar(opts)
+end
+
+function framework:SearchInventory(item, count)
+end
+
+function framework:SetPlayerData(key, val)
+end
+
+function framework:ShowAdvancedNotification(opts)
+end
+
+function framework:ShowFloatingHelpNotification(opts)
+end
+
+function framework:ShowHelpNotification(opts)
+end
+
+function framework:ShowInventory()
+end
+
+function framework:ShowNotification(opts)
+end
+
+function framework:TriggerServerCallback(opts)
+end
+
 
 return framework

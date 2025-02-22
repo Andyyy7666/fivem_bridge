@@ -19,6 +19,7 @@ FiveM Resource Bridge for Frameworks, Inventories, Notifications and more.
 | GetJobLabel() | Job label
 | GetCoords() | Character coords
 | GetSex() | Character sex
+| IsPlayerLoaded() | Is the player loaded?
 #### Server
 | Bridge | Returns
 | ------------- | ------------- |
