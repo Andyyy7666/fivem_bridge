@@ -3,68 +3,68 @@ local ESX = exports["es_extended"]:getSharedObject()
 
 ---@return string
 function framework:GetPlayerName()
-    return ESX.GetPlayerData().name
+    local playerData = ESX.PlayerData
+    return playerData.name
 end
 
 ---@return string
 function framework:GetFirstName()
-    return ESX.GetPlayerData().firstName
+    return ESX.PlayerData.firstName
 end
 
 ---@return string
 function framework:GetLastName()
-    return ESX.GetPlayerData().lastName
+    return ESX.PlayerData.lastName
 end
 
 ---@return number
 function framework:GetCash()
-    return ESX.GetPlayerData().accounts['money']
+    return ESX.PlayerData.accounts.Money
 end
 
 ---@return number
 function framework:GetBank()
-    return ESX.GetPlayerData().accounts['bank']
+    return ESX.PlayerData.accounts.Bank
 end
 
 ---@return number
 function framework:GetBlackCash()
-    return ESX.GetPlayerData().accounts['black_money']
+    return ESX.PlayerData.accounts.Black
 end
 
 ---@return string
 function framework:GetDOB()
-    return ESX.GetPlayerData().dateofbirth
+    return ESX.PlayerData.dateofbirth
 end
 
 ---@return number
 function framework:GetJobGrade()
-    return ESX.GetPlayerData().job.grade
+    return ESX.PlayerData.job.grade
 end
 
 ---@return string
 function framework:GetJobGradeName()
-    return ESX.GetPlayerData().job.grade_name
+    return ESX.PlayerData.job.grade_name
 end
 
 ---@return string
 function framework:GetJobName()
-    return ESX.GetPlayerData().job.name
+    return ESX.PlayerData.job.name
 end
 
 ---@return string
 function framework:GetJobLabel()
-    return ESX.GetJobLabel(ESX.GetPlayerData().job.name)
+    return ESX.PlayerData.job.label
 end
 
----@return vector3
+---@return table
 function framework:GetCoords()
-    local playerPed = PlayerPedId()
-    return GetEntityCoords(playerPed)
+    return ESX.PlayerData.coords
 end
 
 ---@return string
 function framework:GetSex()
-    return ESX.GetPlayerData().sex
+    return ESX.PlayerData.sex
 end
 
 ---@return boolean
@@ -73,61 +73,63 @@ function framework:IsPlayerLoaded()
 end
 
 function framework:Progressbar(opts)
-    lib.progressBar({
-        duration = opts.duration or 5000,
-        label = opts.label or "Processing...",
-        useWhileDead = opts.useWhileDead or false,
-        canCancel = opts.canCancel or true,
+    ESX.Progressbar(opts.message, opts.length, {
+        FreezePlayer = opts.FreezePlayer or false,
+        animation = opts.animation or nil,
+        onFinish = opts.onFinish or function() end,
+        onCancel = opts.onCancel or function() end
     })
 end
 
----@param item string
----@param count number
----@return boolean
+
 function framework:SearchInventory(item, count)
-    local hasItem = exports.ox_inventory:Search('count', item) or 0
-    return hasItem >= (count or 1)
+    local xPlayer = ESX.GetPlayerData()
+    local inventory = xPlayer.inventory
+    for _, v in pairs(inventory) do
+        if v.name == item and v.count >= (count or 1) then
+            return true
+        end
+    end
+    return false
 end
 
----@param key string
----@param val any
 function framework:SetPlayerData(key, val)
     ESX.SetPlayerData(key, val)
 end
 
 function framework:ShowAdvancedNotification(opts)
-    lib.notify({
-        title = opts.title or "Notification",
-        description = opts.description or "",
-        type = opts.type or "info"
-    })
+    ESX.ShowAdvancedNotification(opts.sender, opts.subject, opts.message, opts.icon, opts.iconType or 0)
 end
 
 function framework:ShowFloatingHelpNotification(opts)
-    lib.showTextUI(opts.text, {
-        position = opts.position or "top-center",
-        icon = opts.icon or "info"
-    })
+    AddTextEntry('FloatingHelpNotification', opts.message)
+    SetFloatingHelpTextWorldPosition(1, opts.coords.x, opts.coords.y, opts.coords.z)
+    SetFloatingHelpTextStyle(1, 1, 2, -1, 3, 0)
+    BeginTextCommandDisplayHelp('FloatingHelpNotification')
+    EndTextCommandDisplayHelp(2, false, false, -1)
 end
 
 function framework:ShowHelpNotification(opts)
-    AddTextEntry("HELP_NOTIFICATION", opts.text)
-    DisplayHelpTextThisFrame("HELP_NOTIFICATION", false)
+    AddTextEntry('HelpNotification', opts.message)
+    BeginTextCommandDisplayHelp('HelpNotification')
+    EndTextCommandDisplayHelp(0, false, true, -1)
 end
 
 function framework:ShowInventory()
-    exports.ox_inventory:openInventory('player')
+    if ESX.UI.Menu.IsOpen('default', GetCurrentResourceName(), 'inventory') then
+        ESX.UI.Menu.Close('default', GetCurrentResourceName(), 'inventory')
+    else
+        ESX.ShowInventory()
+    end
 end
 
 function framework:ShowNotification(opts)
-    lib.notify({
-        description = opts.text or "",
-        type = opts.type or "info"
-    })
+    ESX.ShowNotification(opts.message, opts.type or 'info', opts.time or 5000)
 end
 
-function framework:TriggerServerCallback(event, cb, ...)
-    ESX.TriggerServerCallback(event, cb, ...)
+function framework:TriggerServerCallback(name, cb, ...)
+    ESX.TriggerServerCallback(name, cb, ...)
 end
+
 
 return framework
