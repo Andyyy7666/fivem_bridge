@@ -26,7 +26,7 @@ function framework.GetMoney(type)
     if type == "cash" then
         return exports.keystone:get_item("cash") or 0 -- export for get_item is missing in my core but ill add it asap.
     elseif type == "bank" then
-        return player.accounts.general.amount or 0
+        return player.accounts.general.balance or 0
     elseif type == "black" then
         return exports.keystone:get_item("dirty_cash") or 0
     end
