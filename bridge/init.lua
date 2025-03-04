@@ -1,12 +1,14 @@
 local function getBridge(bridgeType)
-    local context = IsDuplicityVersion() and "server" or "client"
+    local context = cache.context
+    local bridge = ConfigBridge[bridgeType]
 
-    for resource, bridge in pairs(Config[bridgeType]) do
-        if GetResourceState(resource):find("start") then
-            return ("bridge.%s.%s.%s"):format(bridgeType, bridge, context)
+    for i=1, #bridge do
+        local info = bridge[i]
+        if GetResourceState(info.resource):find("start") then
+            return ("bridge.%s.%s.%s"):format(bridgeType, info.folder, context)
         end
     end
-
+    
     return ("bridge.%s.%s.%s"):format(bridgeType, "default", context)
 end
 
