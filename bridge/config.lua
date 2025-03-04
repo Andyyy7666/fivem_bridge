@@ -1,31 +1,27 @@
-Config = {
+ConfigBridge = {
     ---Resources are checked sequentially. So if you want to prioritise a specific bridge then put it higher in the list.
-    ---For e.g. if you have ["es_extended"] and ["ox_lib"] as notification bridges, in that order - then it will use es_extended.
-
-    ---Note: Bridges have case sensitive resource names. (Left Side).
-    ---Use the right side for the bridge folders.
 
     frameworks = {
-        ["ND_Core"] = "nd",
-        ["ox_core"] = "ox",
-        ["es_extended"] = "esx",
-        ["qb-core"] = "qb",
-        ["qbx-core"] = "qbx"
+        { resource = "ND_Core", folder = "nd" },
+        { resource = "ox_core", folder = "ox" },
+        { resource = "es_extended", folder = "esx" },
+        { resource = "qb-core", folder = "qb" },
+        { resource = "qbx-core", folder = "qbx" }
     },
-
+    
     inventories = {
-        ["ox_inventory"] = "ox"
-        ["qb-inventory"] = "qb",
+        { resource = "ox_inventory", folder = "ox" },
+        { resource = "qb-inventory", folder = "qb" }
     },
-
+    
     notifications = {
-        ["ox_lib"] = "ox_lib",
-        ["es_extended"] = "esx",
-        ["qb-core"] = "qb"
+        { resource = "ox_lib", folder = "ox_lib" },
+        { resource = "es_extended", folder = "esx" },
+        { resource = "qb-core", folder = "qb" }
     },
-
+    
     targets = {
-        ["ox_target"] = "ox",
-        ["qb-target"] = "qb"
-    }
+        { resource = "ox_target", folder = "ox" },
+        { resource = "qb-target", folder = "qb" }
+    }    
 }
