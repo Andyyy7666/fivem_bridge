@@ -1,14 +1,17 @@
-fx_version "cerulean"
-use_experimental_fxv2_oal "yes"
-lua54 "yes"
-game "gta5"
 name "fivem_bridge"
+description "Add compatibilty with frameworks, targets, inventories, etc."
 version "0.0.1"
-repository ""
-description ""
+repository "https://github.com/Andyyy7666/fivem_bridge/tree/main"
+
+-- If using this inside a resource, add everything below to the fxmanfiest.lua
+
+fx_version "cerulean"
+game "gta5"
+lua54 "yes"
+use_experimental_fxv2_oal "yes"
 
 files {
-    -- gotta add the client bridge files here that are loaded.
+    "bridge/**/**/client.lua"
 }
 
 shared_scripts {
