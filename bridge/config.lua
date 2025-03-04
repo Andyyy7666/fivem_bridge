@@ -10,7 +10,8 @@ Config = {
         ["ox_core"] = "ox",
         ["es_extended"] = "esx",
         ["qb-core"] = "qb",
-        ["qbx-core"] = "qbx"
+        ["qbx-core"] = "qbx",
+        ["keystone"] = "keystone"
     },
 
     inventories = {
@@ -21,7 +22,8 @@ Config = {
     notifications = {
         ["ox_lib"] = "ox_lib",
         ["es_extended"] = "esx",
-        ["qb-core"] = "qb"
+        ["qb-core"] = "qb",
+        ["fivem_utils"] = "fivem_utils"
     },
 
     targets = {

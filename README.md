@@ -11,7 +11,8 @@ Our goal is to create a non bloated, easy to understand brigde allowing easy and
 | OXCore | qb_inventory | ESX Notifcations | qb_taret
 | ESX | | QB Notifications | 
 | QBCore | | Default GTA Online |
-| QBX Core |
+| QBX Core | | fivem_utils |
+| Keystone (beta) |
 
 
 
@@ -20,6 +21,6 @@ Our goal is to create a non bloated, easy to understand brigde allowing easy and
 #### Client
 | Bridge  | Params | Returns
 | ------------- | ------------- | ------------- |
-| GetPlayer | None | `table: { fullName, firstName, lastName, dob, gener }`
+| GetPlayer | None | `table: { fullName, firstName, lastName, dob, gender }`
 | GetMoney | type: `string` (cash, bank, black)  | `number`
 | IsPlayerLoaded | None | `boolean`
