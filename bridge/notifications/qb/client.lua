@@ -1,7 +1,7 @@
 local notifications = {}
 local QBCore = exports["qb-core"]:GetCoreObject()
 
-function notifications:Notify(data)
+function notifications.Notify(data)
     if data.type == "inform" then
         data.type = "info"
     end

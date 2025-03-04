@@ -12,7 +12,7 @@ end)
 
 ---Get Player data
 ---@return table
-function framework:GetPlayer()
+function framework.GetPlayer()
     local player = QBX.PlayerData?.charinfo
     local firstName = player.firstname
     local lastName = player.lastname
@@ -26,10 +26,9 @@ function framework:GetPlayer()
 end
 
 ---Get any money/accounts
----@param self any
 ---@param type string
 ---@return number
-function framework:GetMoney(self, type)
+function framework.GetMoney(type)
     if type == "cash" then
         return cashAmount
     elseif type == "bank" then
@@ -47,7 +46,7 @@ end
 
 ---Get all job info for the player
 ---@return table
-function framework:GetJobInfo()
+function framework.GetJobInfo()
     local player = QBX.PlayerData
     local job = player.job
     return {
@@ -59,7 +58,7 @@ function framework:GetJobInfo()
 end
 
 ---@return boolean
-function framework:IsPlayerLoaded()
+function framework.IsPlayerLoaded()
     return QBX.PlayerData ~= nil
 end
 

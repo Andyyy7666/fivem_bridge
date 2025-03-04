@@ -7,7 +7,7 @@ end)
 
 ---Get Player data
 ---@return table
-function framework:GetPlayer()
+function framework.GetPlayer()
     local name = GetPlayerName(cache.playerId)
     return {
         fullName = name,
@@ -19,16 +19,15 @@ function framework:GetPlayer()
 end
 
 ---Get any money/accounts
----@param self any
 ---@param type string
 ---@return number
-function framework:GetMoney(self, type)
+function framework.GetMoney(type)
     return 0
 end
 
 ---Get all job info for the player
 ---@return table
-function framework:GetJobInfo()
+function framework.GetJobInfo()
     local player = NDCore:getPlayer()
     return {
         grade = 0,
@@ -39,7 +38,7 @@ function framework:GetJobInfo()
 end
 
 ---@return boolean
-function framework:IsPlayerLoaded()
+function framework.IsPlayerLoaded()
     return loaded
 end
 

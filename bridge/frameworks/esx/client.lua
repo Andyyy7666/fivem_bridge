@@ -3,7 +3,7 @@ local ESX = exports["es_extended"]:getSharedObject()
 
 ---Get Player data
 ---@return table
-function framework:GetPlayer()
+function framework.GetPlayer()
     local player = ESX.PlayerData
     return {
         fullName = ("%s %s"):format(player.firstName, player.lastName),
@@ -15,10 +15,9 @@ function framework:GetPlayer()
 end
 
 ---Get any money/accounts
----@param self any
 ---@param type string
 ---@return number
-function framework:GetMoney(self, type)
+function framework.GetMoney(type)
     local player = ESX.PlayerData
     if type == "cash" then
         return player.accounts.Money
@@ -31,7 +30,7 @@ end
 
 ---Get all job info for the player
 ---@return table
-function framework:GetJobInfo()
+function framework.GetJobInfo()
     local player = ESX.PlayerData
     return {
         grade = player.job.grade,
@@ -42,7 +41,7 @@ function framework:GetJobInfo()
 end
 
 ---@return boolean
-function framework:IsPlayerLoaded()
+function framework.IsPlayerLoaded()
     return ESX.IsPlayerLoaded()
 end
 

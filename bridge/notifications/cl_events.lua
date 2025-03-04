@@ -1,3 +1,3 @@
 RegisterNetEvent("bridge:notify", function(data)
-	Bridge.N:Notify(data)
+	Bridge.noti.Notify(data)
 end)

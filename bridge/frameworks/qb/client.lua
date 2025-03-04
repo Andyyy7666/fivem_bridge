@@ -3,7 +3,7 @@ local QBCore = exports["qb-core"]:GetCoreObject()
 
 ---Get Player data
 ---@return table
-function framework:GetPlayer()
+function framework.GetPlayer()
     local player = QBCore.Functions.GetPlayerData()
     local info = player.charinfo
     local lastName = info.lastname
@@ -18,10 +18,9 @@ function framework:GetPlayer()
 end
 
 ---Get any money/accounts
----@param self any
 ---@param type string
 ---@return number
-function framework:GetMoney(self, type)
+function framework.GetMoney(type)
     local player = QBCore.Functions.GetPlayerData()
     if type == "cash" then
         return player.money["cash"]
@@ -34,7 +33,7 @@ end
 
 ---Get all job info for the player
 ---@return table
-function framework:GetJobInfo()
+function framework.GetJobInfo()
     local player = QBCore.Functions.GetPlayerData()
     local job = player.job
     return {
@@ -46,7 +45,7 @@ function framework:GetJobInfo()
 end
 
 ---@return boolean
-function framework:IsPlayerLoaded()
+function framework.IsPlayerLoaded()
     return QBCore.Functions.GetPlayerData() ~= nil
 end
 

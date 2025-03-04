@@ -3,7 +3,7 @@ local NDCore = exports["ND_Core"]
 
 ---Get Player data
 ---@return table
-function framework:GetPlayer()
+function framework.GetPlayer()
     local player = NDCore:getPlayer()
     return {
         fullName = player.fullname,
@@ -15,10 +15,9 @@ function framework:GetPlayer()
 end
 
 ---Get any money/accounts
----@param self any
 ---@param type string
 ---@return number
-function framework:GetMoney(self, type)
+function framework.GetMoney(type)
     local player = NDCore:getPlayer()
     if type == "cash" then
         return player.cash
@@ -38,7 +37,7 @@ end
 
 ---Get all job info for the player
 ---@return table
-function framework:GetJobInfo()
+function framework.GetJobInfo()
     local player = NDCore:getPlayer()
     return {
         grade = player?.jobInfo?.rank or 0,
@@ -49,7 +48,7 @@ function framework:GetJobInfo()
 end
 
 ---@return boolean
-function framework:IsPlayerLoaded()
+function framework.IsPlayerLoaded()
     return NDCore:getPlayer() ~= nil
 end
 

@@ -1,8 +1,8 @@
 local notifications = {}
 
-function notifications:Notify(data)
+function notifications.Notify(data)
     BeginTextCommandThefeedPost("STRING")
-    AddTextComponentSubstringPlayerName(info.title)
+    AddTextComponentSubstringPlayerName(info.title or info.description)
     EndTextCommandThefeedPostTicker(0, 1)
 end
 

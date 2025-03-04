@@ -3,9 +3,8 @@ Config = {
     ---For e.g. if you have ["es_extended"] and ["ox_lib"] as notification bridges, in that order - then it will use es_extended.
 
     ---Note: Bridges have case sensitive resource names. (Left Side).
-    ---Use the right side for the bridge method.
-    ---bridgeFramework = "esx", -- ox, esx, qbox, qb-core, <custom> (if you've added this yourself).
-    ---bridgeInventory = "ox_inventory", -- ox_inventory, <custom> (if you've added this yourself).
+    ---Use the right side for the bridge folders.
+
     frameworks = {
         ["ND_Core"] = "nd",
         ["ox_core"] = "ox",
@@ -15,7 +14,8 @@ Config = {
     },
 
     inventories = {
-        ["ox_inventory"] = "ox_inventory"
+        ["ox_inventory"] = "ox"
+        ["qb-inventory"] = "qb",
     },
 
     notifications = {
@@ -25,7 +25,7 @@ Config = {
     },
 
     targets = {
-        ["ox_target"] = "ox_target",
-        ["qb-target"] = "qb_target"
+        ["ox_target"] = "ox",
+        ["qb-target"] = "qb"
     }
 }

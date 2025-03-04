@@ -3,7 +3,7 @@ local Ox = require "@ox_core.lib.init"
 
 ---Get Player data
 ---@return table
-function framework:GetPlayer()
+function framework.GetPlayer()
     local player = Ox.GetPlayer()
     local firstName = player.get("firstName")
     local lastName = player.get("lastName")
@@ -17,10 +17,9 @@ function framework:GetPlayer()
 end
 
 ---Get any money/accounts
----@param self any
 ---@param type string
 ---@return number
-function framework:GetMoney(self, type)
+function framework.GetMoney(type)
     local player = Ox.GetPlayer()
     local <const> ox_inventory = exports.ox_inventory
 
@@ -40,7 +39,7 @@ end
 
 ---Get all job info for the player
 ---@return table
-function framework:GetJobInfo()
+function framework.GetJobInfo()
     local player = Ox.GetPlayer()
     local jobName, jobGrade = player.getGroupByType("job")
     return {
@@ -52,7 +51,7 @@ function framework:GetJobInfo()
 end
 
 ---@return boolean
-function framework:IsPlayerLoaded()
+function framework.IsPlayerLoaded()
     return Ox.GetPlayer() ~= nil
 end
 

@@ -11,8 +11,8 @@ local function getBridge(bridgeType)
 end
 
 Bridge = {
-    F = lib.load(getBridge("frameworks")),
-    I = lib.load(getBridge("inventories")),
-    N = lib.load(getBridge("notifications")),
-    T = lib.load(getBridge("targets"))
+    framework = lib.load(getBridge("frameworks")),
+    inventory = lib.load(getBridge("inventories")),
+    noti = lib.load(getBridge("notifications")),
+    target = lib.load(getBridge("targets"))
 }
