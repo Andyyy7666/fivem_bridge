@@ -10,84 +10,57 @@ RegisterNetEvent('hud:client:OnMoneyChange', function(type, amount, isMinus)
     bankAmount = QBX.PlayerData.money.bank
 end)
 
----@return string
-function framework:GetPlayerName()
-    local player = QBX.PlayerData?.charinfo
-    return ("%s %s"):format(player.firstname, player.lastname)
-end
-
----@return string
-function framework:GetFirstName()
-    local player = QBX.PlayerData?.charinfo
-    return player.firstname
-end
-
----@return string
-function framework:GetLastName()
-    local player = QBX.PlayerData?.charinfo
-    return player.lastname
-end
-
----@return number
-function framework:GetCash()
-    return cashAmount
-end
-
----@return number
-function framework:GetBank()
-    return bankAmount
-end
-
----@return number
-function framework:GetBlackCash()
-    if GetResourceState("ox_inventory"):find("start") then
-        local <const> ox_inventory = exports.ox_inventory
-        local <const> usingDirtyMoney = ox_inventory:Items("black_money")
-        return ox_inventory:GetItemCount("black_money")
-    end
-    
-    return cashAmount
-end
-
----@return string
-function framework:GetDOB()
-    local player = QBX.PlayerData?.charinfo
-    return player.birthdate
-end
-
----@return number
-function framework:GetJobGrade()
-    local player = QBX.PlayerData
-    return player.job.grade.level
-end
-
----@return string
-function framework:GetJobGradeName()
-    local player = QBX.PlayerData
-    return player.job.grade.name
-end
-
----@return string
-function framework:GetJobName()
-    local player = QBX.PlayerData
-    return player.job.name
-end
-
----@return string
-function framework:GetJobLabel()
-    local player = QBX.PlayerData
-    return player.job.label
-end
-
+---Get Player data
 ---@return table
-function framework:GetCoords()
-    return cache.coords or GetEntityCoords(cache.ped)
+function framework:GetPlayer()
+    local player = QBX.PlayerData?.charinfo
+    local firstName = player.firstname
+    local lastName = player.lastname
+    return {
+        fullName = ("%s %s"):format(firstName, lastName),
+        firstName = firstName,
+        lastName = lastName,
+        dob = player.birthdate,
+        gender = player.gender
+    }
 end
 
----@return string
-function framework:GetSex()
-    local player = QBX.PlayerData?.charinfo
-    return player.gender
+---Get any money/accounts
+---@param self any
+---@param type string
+---@return number
+function framework:GetMoney(self, type)
+    if type == "cash" then
+        return cashAmount
+    elseif type == "bank" then
+        return bankAmount
+    elseif type == "black" then
+        if GetResourceState("ox_inventory"):find("start") then
+            local <const> ox_inventory = exports.ox_inventory
+            local <const> usingDirtyMoney = ox_inventory:Items("black_money")
+            return ox_inventory:GetItemCount("black_money")
+        end
+        
+        return cashAmount
+    end
+end
+
+---Get all job info for the player
+---@return table
+function framework:GetJobInfo()
+    local player = QBX.PlayerData
+    local job = player.job
+    return {
+        grade = job.grade.level,
+        gradeName = job.grade.name,
+        jobName = job.name,
+        jobLabel = player.job.label
+    }
+end
+
+---@return boolean
+function framework:IsPlayerLoaded()
+    return QBX.PlayerData ~= nil
 end
 
 return framework
