@@ -10,7 +10,8 @@ Config = {
         ["ox_core"] = "ox",
         ["es_extended"] = "esx",
         ["qb-core"] = "qb",
-        ["qbx-core"] = "qbx"
+        ["qbx-core"] = "qbx",
+        ["keystone"] = "keystone"
     },
 
     inventories = {
