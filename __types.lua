@@ -1,0 +1,14 @@
+---@class NotificationData
+---@field id? string | number
+---@field title? string
+---@field description? string
+---@field duration? number
+---@field showDuration? boolean
+---@field position? 'top' | 'top-right' | 'top-left' | 'bottom' | 'bottom-right' | 'bottom-left' | 'center-right' | 'center-left'
+---@field type? 'inform' | 'error' | 'success'
+---@field style? table;
+---@field icon? string | [string, string]
+---@field iconColor? string
+---@field iconAnimation? 'spin' | 'spinPulse' | 'spinReverse' | 'pulse' | 'beat' | 'fade' | 'beatFade' | 'bounce' | 'shake'
+---@field alignIcon? 'top' | 'center'
+---@field sound? { bank?: string; set: string; name: string }

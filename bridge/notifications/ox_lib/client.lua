@@ -1,7 +1,9 @@
 local notifications = {}
 
+--- Notification
+---@param data NotificationData
 function notifications.Notify(data)
-    exports["ox_lib"]:notify(data)
+    lib.notify(data)
 end
 
 return notifications
