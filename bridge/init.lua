@@ -1,3 +1,7 @@
+
+--- Gets the bridge functions
+---@param bridgeType string Bridge type from config.lua
+---@return string
 local function getBridge(bridgeType)
     local context = cache.context
     local bridge = ConfigBridge[bridgeType]
@@ -8,13 +12,13 @@ local function getBridge(bridgeType)
             return ("bridge.%s.%s.%s"):format(bridgeType, info.folder, context)
         end
     end
-    
+
     return ("bridge.%s.%s.%s"):format(bridgeType, "default", context)
 end
 
 Bridge = {
     framework = lib.load(getBridge("frameworks")),
     inventory = lib.load(getBridge("inventories")),
-    noti = lib.load(getBridge("notifications")),
+    notify = lib.load(getBridge("notifications")),
     target = lib.load(getBridge("targets"))
 }
