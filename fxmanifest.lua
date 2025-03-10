@@ -1,5 +1,5 @@
 name "fivem_bridge"
-description "Add compatibilty with frameworks, targets, inventories, etc."
+description "Add compatibility with frameworks, targets, inventories, etc."
 version "0.0.1"
 repository "https://github.com/Andyyy7666/fivem_bridge/tree/main"
 
