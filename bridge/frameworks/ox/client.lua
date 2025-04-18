@@ -21,7 +21,7 @@ end
 ---@return number
 function framework.GetMoney(type)
     local player = Ox.GetPlayer()
-    local <const> ox_inventory = exports.ox_inventory
+    local ox_inventory <const> = exports.ox_inventory
 
     if type == "cash" then
         return ox_inventory:GetItemCount("money")
@@ -32,7 +32,7 @@ function framework.GetMoney(type)
             return ox_inventory:GetItemCount("money")
         end
 
-        local <const> usingDirtyMoney = ox_inventory:Items("black_money")
+        local usingDirtyMoney <const> = ox_inventory:Items("black_money")
         return usingDirtyMoney and ox_inventory:GetItemCount("black_money") or ox_inventory:GetItemCount("money")
     end
 end

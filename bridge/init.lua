@@ -3,7 +3,7 @@
 ---@param bridgeType string Bridge type from config.lua
 ---@return string
 local function getBridge(bridgeType)
-    local context = cache.context
+    local context = lib.context
     local bridge = ConfigBridge[bridgeType]
 
     for i=1, #bridge do

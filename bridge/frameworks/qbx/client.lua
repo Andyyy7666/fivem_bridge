@@ -35,8 +35,8 @@ function framework.GetMoney(type)
         return bankAmount
     elseif type == "black" then
         if GetResourceState("ox_inventory"):find("start") then
-            local <const> ox_inventory = exports.ox_inventory
-            local <const> usingDirtyMoney = ox_inventory:Items("black_money")
+            local ox_inventory <const> = exports.ox_inventory
+            local usingDirtyMoney <const> = ox_inventory:Items("black_money")
             return ox_inventory:GetItemCount("black_money")
         end
         
